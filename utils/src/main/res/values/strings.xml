@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Utils</string>
+
+    <!-- Volley On Error Response !-->
+    <string name="loading_data_error">Loading Data Error</string>
+
 </resources>
