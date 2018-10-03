@@ -12,16 +12,20 @@ public class VolleyOnErrorResponse implements Response.ErrorListener {
 
     private Context context;
     private CustomProgressDialog customProgressDialog;
+    private boolean logError;
 
-    public VolleyOnErrorResponse(Context context , CustomProgressDialog customProgressDialog) {
+    public VolleyOnErrorResponse(Context context , CustomProgressDialog customProgressDialog , boolean logErrror) {
         this.context = context;
         this.customProgressDialog = customProgressDialog;
+        this.logError = logErrror;
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
         customProgressDialog.cancel();
         Toast.makeText(context, R.string.loading_data_error, Toast.LENGTH_SHORT).show();
-        Log.d("Volley Error",error.getMessage());
+
+        if (logError)
+            Log.d("Volley Error",error.getMessage());
     }
 }
